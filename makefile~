@@ -1,0 +1,7 @@
+
+all:
+	javac -d classes *.java
+
+run:
+	java -cp classes 
+
