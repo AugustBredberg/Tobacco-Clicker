@@ -14,10 +14,11 @@ public class GrowTobaccoButton extends GameObject{
     
 
     public void render(Graphics g){
-	g.setColor(Color.red);
-	g.fillRect(x, y, 10, 10);
+	//g.setColor(Color.red);
+	//g.fillRect(x, y, 10, 10);
     }
 
     public void tick(){
+	
     }
 }

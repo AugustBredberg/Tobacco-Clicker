@@ -2,46 +2,53 @@ package game;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
+import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 
 public class Window extends Canvas{
 		
-    public JFrame frame;
-    
+    public static JFrame frame;
+    public JPanel panel;
+    public GridBagConstraints gbc;
 
     public Window(int width, int height, String title, Game game) {
 	main(width, height, title, game);
     }
-		
+
+   
 	
     public void main(int width, int height, String title, Game game) {
-	JFrame frame = new JFrame("Tobacco Clicker by Bredberg");
-	this.frame = frame;
-	frame.setPreferredSize(new Dimension(width, height));
-	frame.setMaximumSize(new Dimension(width, height));
-	frame.setMinimumSize(new Dimension(width, height));
-
+	/*
+	Layout layout = new Layout("Tobacco Clicker by Bredberg");
+	this.frame = layout;
+	System.out.println("hello world");
+	JPanel panel = new JPanel(new GridLayout());
+	panel.setPreferredSize(new Dimension(width,height));
+	*/
+	JFrame frame = new JFrame(title);
+	
+	frame.setPreferredSize(new Dimension(width,height));
+	frame.setMaximumSize(new Dimension(width,height));
+	frame.setMinimumSize(new Dimension(width,height));
+	//panel.setBackground(Color.red);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setResizable(false);
 	frame.setLocationRelativeTo(null);
-	//frame.add(game);
+	frame.add(game);
+	
+	//layout.add(panel);
+	//layout.setVisible(true);	
 	frame.setVisible(true);
-
-	JPanel container = new JPanel(new GridBagLayout());	
-	GridBagConstraints c = new GridBagConstraints();
-	JButton button = new JButton("knappjaevel");
-	button.setBounds(0,0,150,150);
-	container.add(button);
-	//frame.add(button);
-	frame.getContentPane().add(container);
-	System.out.println("hello world");
-
-	frame.pack();
+	//layout.getContentPane().add(game);
+	//panel.pack();
 	game.start();
     }		
 }
